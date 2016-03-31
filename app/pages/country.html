@@ -1,0 +1,9 @@
+<h2 class="tabs-panel__title">Choose country from wich you <br>wanna send love</h2>
+    <div class="country">
+        <ul class="country__list">
+            <li ng-repeat="country in config.countries" class="country__item" ng-click="country.choosed = !country.choosed" ng-class="country.choosed ? 'country__item--active' : ''"><i class="country__{{country.name}} icon"></i><span>{{country.label}}</span></li>
+            <li class="country__item"><i class="country__default icon"></i><a href="/pages/join_us.html" class="menu__cost" ng-click="openModal($event)">join us!</a></li>
+        </ul>
+        <p class="country__ask">Your country is not in our list? <a href="/pages/join_us.html" class="country__choose menu__cost" ng-click="openModal($event)">join us!</a></p>
+        <a class="next-step" href="#address">Next <i class="icon"></i></a>
+    </div>

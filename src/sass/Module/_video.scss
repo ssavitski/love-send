@@ -1,0 +1,41 @@
+.video {
+	position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px; 
+  height: 0; 
+  overflow: hidden;
+  iframe {
+  	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &__play {
+    z-index: 666;
+    @include cssowl-absolute-inside(rem-calc(240), rem-calc(240), middle, center);
+    @include cssowl-before-absolute-inside("*", 100%, 100%, middle, center, 0, 0);
+    @include cssowl-after-absolute-inside("*", 100%, 100%, middle, center, 0, 0);
+    position: absolute;
+    outline: none;
+    &:before,
+    &:after {
+      @extend %cssowl-text-hide;
+      background-position: center center;
+      background-repeat: no-repeat;
+    }
+    &:before {
+      background-image: url(../img/play-button.png);
+    }
+    &:after {
+      @include opacity(0);
+      @include transition(0.2s, ease-in);
+      background-image: url(../img/play-button-bg.png);
+    }
+    &:hover {
+      &:after {
+        @include opacity(1);
+      }
+    }
+  }
+}

@@ -1,0 +1,57 @@
+@mixin countries($offset-top) {
+	@each $current-country in $countries-list {
+    $i: index($countries-list, $current-country)-1;
+    &__#{$current-country} { 
+        background-position: (-1)*$i*$country-item-width+px $offset-top+px;
+    }
+	}
+}
+
+@mixin social-icons-list {
+	@each $current-icon in $social-icons {
+    &__#{$current-icon} { 
+      &:after {
+				background: url(../img/icon-#{$current-icon}-hover.png) center center no-repeat;
+			}
+			&:before {
+				background: url(../img/icon-#{$current-icon}.png) center center no-repeat;
+			}
+    }
+	}
+}
+
+// generic transform
+@mixin transform($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+
+// rotate
+@mixin rotate($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+@mixin prefix($property, $value, $prefixes: ()) { 
+  @each $prefix in $prefixes {
+    -#{$prefix}-#{$property}: $value;
+  }
+
+  #{$property}: $value;
+}
+
+@mixin transition($time: 1s, $timing-function: ease-in-out) { 
+    @include prefix(transition, all $time $timing-function, 'webkit');
+}
+
+@mixin background-size($width, $height: $width) { 
+    @include prefix(background-size, $width $height, 'webkit' 'moz');
+}
+
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+  -webkit-box-shadow:$top $left $blur $color #{$inset};
+  -moz-box-shadow:$top $left $blur $color #{$inset};
+  box-shadow:$top $left $blur $color #{$inset};
+}

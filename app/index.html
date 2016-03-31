@@ -1,0 +1,173 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="sendMessage">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link rel="stylesheet" href="/css/vendor.css">
+
+        <link rel="stylesheet" href="/css/main.css">
+
+    </head>
+    <body ng-controller="AppCtrl">
+
+        <!-- Facebook share button BEGIN -->
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/ru_RU/sdk.js#xfbml=1&version=v2.5";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        <!-- Facebook share button END -->
+
+        <header id="header">
+            <div data-sticky-container>
+                <div class="title-bar" data-sticky data-options="marginTop:0;" style="width:100%">
+                    <div class="row">
+                        <a href="/" class="logo float-left">
+                            <i class="logo__icon icon"></i>Send with love
+                        </a>
+                        <nav class="float-right">
+                            <a ng-click="config.menuVisible = !config.menuVisible" class="top-off-canvas-toggle menu-icon" ><span></span></a>
+                            <aside class="top-off-canvas-menu">
+                                <ul class="menu off-canvas-list" id="menu" ng-class="config.menuVisible ? 'is-opened' : ''">
+                                    <li><a href="/pages/mission_and_values.html" ng-click="openModal($event)" class="menu__item menu__mission">Mission & values</a></li>
+                                    <li><a href="/pages/cost.html" ng-click="openModal($event)" class="menu__item menu__cost">Cost & delivery</a></li>
+                                    <li><a href="/pages/food_for_live_global.html" ng-click="openModal($event)" class="menu__item menu__food">Food for live global</a></li>
+                                    <li><a href="/pages/contact.html" ng-click="openModal($event)" class="menu__item menu__cost menu__contact">Contact</a></li>
+                                </ul>
+                            </aside>
+                        </nav>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="row">
+                <h1 class="title clearfix">
+                    <small>Tell your people</small> You <span class="alert">love</span> them!
+                </h1>
+                <h4 class="slogan float-center">Send your words of love in a postcard from different countries!</h4>
+                <ul class="icon-top features">
+                    <li class="features__item columns large-3"><i class="features__envelope features__icon icon"></i><span class="features__text">No matter where you are.<br>No matter who the card goes to ...</span></li>
+                    <li class="features__item columns large-3"><i class="features__boy features__icon icon"></i><span class="features__text">You can make anybody happy</span></li>
+                    <li class="features__item columns large-3 smartphone-devider"><i class="features__pen features__icon icon"></i><span class="features__text">Every postcard will be signed by hand, by somebody who also cares</span></li>
+                    <li class="features__item columns large-3"><i class="features__heart features__icon icon"></i><span class="features__text">Together we will deliver words of love across the world</span></li>
+                </ul>
+                <button class="button large alert send-message">Send <span>with</span><i class="send-message__heart icon"></i></button>
+                <div class="pointer clearfix"></div>
+            </div>
+            <button class="move-next">
+                <div class="fb-share-button" data-href="http://love-send.com" data-layout="icon"></div>
+            </button>
+        </header>
+        
+        <main>
+            <section id="choose-receiver">
+
+                <ul class="tabs" id="country-tabs">
+                  <li class="tabs-title" ng-class="config.currentTab == 'country' ? 'is-active' : ''"><span>Country</span>/</li>
+                  <li class="tabs-title" ng-class="config.currentTab == 'address' ? 'is-active' : ''"><span>Address</span>/</li>
+                  <li class="tabs-title" ng-class="config.currentTab == 'payment' ? 'is-active' : ''"><span>Payment</span></li>
+                </ul>
+                <div class="tabs-content row clearfix">
+                  <div class="tabs-panel" ng-view></div>
+                </div>
+
+            </section>
+            <section class="video expanded">
+                <button class="video__play"></button>
+                <div id="ytplayer"></div>
+            </section>
+        </main>
+
+        <footer id="footer">
+            <div class="row">
+                <ul class="social-icons float-right">
+                    <li ng-repeat="icon in config.socialIcons"><a class="social-icons__item social-icons__{{icon.name}}" target="_blank" href="{{icon.url}}"></a></li>
+                </ul>
+                <aside class="copyright float-left">
+                    &copy; All Rights Reserved
+                </aside>
+            </div>
+        </footer>
+
+        <div class="reveal modal-window" id="modal_window" data-reveal>
+            <div class="modal-window__border-left"></div>
+            <div class="modal-window__border-right"></div>
+            <div class="modal-window__stamp-right"></div>
+            <div class="modal-window__stamp-left"></div>
+            <div class="modal-window__stamp-bottom"></div>
+            <div class="modal-window__family"></div>
+            <div class="modal-window__inner row">
+                <p class="lead">Your couch. It is mine.</p>
+                <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+            </div>
+            <button class="close-button modal-window__close" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        <div class="reveal contact-window" id="contact_window" ng-controller="ContactWindowCtrl" data-reveal>
+            <aside class="contact-window__info">
+                <div class="contact-window__inner row">
+                    <label for="" class="contact-window__caption">From:</label>
+                    <span class="contact-window__caption-info">{{ selectedAddress.country }}</span>
+                    <div class="clearfix"></div>
+                    <label for="" class="contact-window__caption">To:</label>
+                    <span class="contact-window__caption-info">{{ selectedAddress.receiversName }}</span>
+                    <div class="clearfix"></div>
+                    <label for="" class="contact-window__caption">Address:</label>
+                    <span class="contact-window__caption-info">{{ selectedAddress.city }} {{ selectedAddress.zipCode }} {{ selectedAddress.street }}</span>
+                    <div class="clearfix"></div>
+                    <label for="" class="contact-window__caption">Signature:</label>
+                    <span class="contact-window__caption-message">{{ loveMessage() }}</span>
+                    <span class="contact-window__caption-info">{{ selectedAddress.senderName }}</span>
+                    <div class="contact-window__use-it">
+                        <label for="" class="contact-window__caption">
+                            <input name="use-it" id="use-it" type="checkbox">
+                        </label>
+                        <label for="use-it" class="contact-window__use-it-label">use this address for<br>all postcards</label>
+                    </div>
+                    <button type="button" class="alert button contact-window__save float-center">Save</button>
+                </div>
+            </aside>    
+            <aside class="contact-window__form">
+                <div class="contact-window__inner row">
+                    <input type="text" name="country" ng-model="selectedAddress.country" id="country" placeholder="Country">
+                    <input type="text" name="city" ng-model="selectedAddress.city" id="city" placeholder="City">
+                    <input type="text" name="street" ng-model="selectedAddress.street" id="street" placeholder="Street">
+                    <input type="text" name="zip-code" ng-model="selectedAddress.zipCode" id="zip-code" placeholder="Zip code">
+                    <input type="text" name="receivers-name" ng-model="selectedAddress.receiversName" id="receivers-name" placeholder="Receivers name">
+                    <input type="text" name="your-name" ng-model="selectedAddress.senderName" id="your-name" placeholder="Your name*">
+                    <div class="contact-window__required">
+                        * Enter your name if you want the receiver to know it
+                    </div>
+                    <div class="contact-window__love-lang">
+                        <span>
+                           <input type="radio" name="love" ng-model="foreignLang" ng-value="false" id="love-en"><label for="love-en">I love you</label>
+                        </span>
+                        <span>
+                            <input type="radio" name="love" ng-model="foreignLang" ng-value="true" id="love-foreign"><label for="love-foreign">{{ selectedCountry[0].loveMessage }}</label>
+                        </span>
+                        {{ editCountry }}<br>{{ editCountry }}
+                    </div>
+                    
+                </div>            
+            </aside>
+            <button class="close-button modal-window__close" data-close aria-label="Close modal" type="button">
+              <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <a class="exit-off-canvas"></a>
+
+        <script src="/js/vendor.js"></script>
+
+        <script src="/js/main.js"></script>
+
+    </body>
+</html>

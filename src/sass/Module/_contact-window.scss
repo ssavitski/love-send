@@ -1,0 +1,122 @@
+#use-it {
+	margin-right: 0;
+}
+.contact-window {
+	background: none;
+	overflow: visible;
+	padding: 0;
+	border: none;
+	&__info {
+		float: left;
+		max-width: rem-calc(388);
+		width: percentage(370px / $reveal-width);
+		padding: rem-calc(20);
+	}
+	&__form {
+		float: right;
+		max-width: rem-calc(533);
+		width: percentage(520px / $reveal-width);
+		padding: rem-calc(33);
+		margin-left: rem-calc(5);
+		@include breakpoint(max-width $tablet) {
+			margin-left: 0;
+		}
+	}
+	&__info,
+	&__form {
+		@include border-radius-separate(rem-calc(3), rem-calc(3), rem-calc(3), rem-calc(3));
+		@include box-shadow(5px, 5px, 5px, rgba($shadow, 0.1));
+		background-color: $modal-bg;
+		height: rem-calc(490);
+		overflow-y: auto;
+		@include breakpoint(max-width $smartphone) {
+			padding: rem-calc(10);
+		}
+	}
+	&__inner {
+		height: 100%;
+		overflow-y: auto;
+	}
+	&__caption {
+		float: left;
+		width: percentage(122px / 375px);
+		font-size: rem-calc(24);
+		color: $label;
+		text-align: right;
+		margin-bottom: rem-calc(20);
+		@include breakpoint(max-width $tablet) {
+			font-size: rem-calc(16);
+		}
+		@include breakpoint(max-width $smartphone) {
+			margin-bottom: 0;
+			text-align: left;
+		}
+	}
+	&__caption-info {
+		color: $label-info;
+		display: block;
+		font-size: rem-calc(18);
+		margin-left: percentage(142px / 375px);
+		padding: rem-calc(9) 0;
+		@include breakpoint(max-width $tablet) {
+			padding: 0;
+		}
+		@include breakpoint(max-width $smartphone) {
+			margin-left: 0;
+			clear: left;
+			margin-bottom: rem-calc(20);
+		}
+	}
+	&__caption-message {
+		@extend .contact-window__caption-info;
+		font-style: italic;
+		font-weight: $bold;
+	}
+	&__use-it {
+		clear: both;
+		margin-top: rem-calc(20);
+	}
+	&__use-it-label {
+		@extend .contact-window__caption-info;
+		line-height: 1.3;
+		color: $label-checkbox;
+		font-size: rem-calc(14);
+		font-weight: $bold;
+		clear: none;
+	}
+	&__save {
+		text-transform: uppercase;
+		font-size: rem-calc(22);
+		color: $text;
+		text-align: center;
+		height: rem-calc(40);
+		line-height: rem-calc(36);
+		@include border-radius-separate(rem-calc(40), rem-calc(40), rem-calc(40), rem-calc(40));
+		padding: 0 rem-calc(50);
+		margin-top: rem-calc(20);
+		@include breakpoint(max-width $smartphone) {
+			padding-left: rem-calc(10);
+			padding-right: rem-calc(10);
+		}
+	}
+	&__required {
+		color: $label-info;
+		font-size: rem-calc(14);
+		margin-bottom: rem-calc(30);
+	}
+	&__love-lang {
+		label {
+			text-transform: uppercase;
+			color: $label;	
+			margin-left: rem-calc(10);
+			margin-right: rem-calc(35);
+			position: relative;
+			top: -5px;
+		}
+		span {
+			@include breakpoint(max-width $tablet) {
+				display: block;
+			}
+		}
+	}
+}

@@ -1,0 +1,54 @@
+.features {
+	padding: 0;
+	margin: 0;
+	&__item {
+		list-style-type: none;
+		display: inline-block;
+		text-align: center;
+		@include breakpoint(max-width $desktop) {
+			width: 25%;
+		}
+		@include breakpoint(max-width $smartphone) {
+			width: 50%;
+			margin-bottom: rem-calc(40);
+			&.smartphone-devider {
+				clear: left;
+			}
+		}
+		@include breakpoint(max-width $iphone) {
+			width: 100%;
+		}
+	}
+	&__icon {
+		background-image: url(../img/icons.png);
+	}
+	&__envelope {
+		height: rem-calc(69);
+		width: rem-calc(104);
+		background-position: rem-calc(-59) 0;
+	}
+	&__boy {
+		height: rem-calc(74);
+		width: rem-calc(70);
+		background-position: rem-calc(-163) 0;
+	}
+	&__pen {
+		height: rem-calc(72);
+		width: rem-calc(99);
+		background-position: rem-calc(-233) 0;
+	}
+	&__heart {
+		height: rem-calc(52);
+		width: rem-calc(62);
+		background-position: rem-calc(-332) 0;
+		margin: rem-calc(10) 0;
+	}
+	&__text {
+		line-height: 1;
+		font-size: rem-calc(16);
+		display: block;
+		font-style: italic;
+		margin-top: rem-calc(25);
+		font-weight: $bold;
+	}
+}

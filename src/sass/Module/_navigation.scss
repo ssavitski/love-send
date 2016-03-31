@@ -1,0 +1,55 @@
+.menu {
+	padding: 0;
+	li {
+		list-style-type: none;
+		display: inline-block;
+	}
+	&.is-opened {
+		display: block;
+	}
+	.menu__item {
+		display: block;
+		text-transform: uppercase;
+		text-decoration: none;
+		font-size: rem-calc(16);
+		padding: rem-calc(4) rem-calc(18);
+		background-color: $nav-bg;
+		margin: 0 rem-calc(5);
+		@include border-radius-separate(11px, 11px, 11px, 11px);
+		@include transition(0.3s, ease-in);
+		&--active,
+		&:hover {
+			background-color: $nav-active-bg;
+		}
+		@include breakpoint(max-width $desktop) {
+			@include radius(0);
+			width: 100%;
+			padding-top: rem-calc(12);
+			padding-bottom: rem-calc(12);
+			margin: 0;
+		}
+	}
+	@include breakpoint(max-width $desktop) {
+		display: none;
+		clear: both;
+		float: none;
+		position: absolute;
+		right: 0;
+		top: 100%;
+		@include box-shadow(0, 1px, 5px, rgba($modal-close-shadow, 0.5));
+		li {
+			display: block;
+		}
+	}
+}
+.menu-icon {
+	display: none;
+	float: right;
+	margin-top: rem-calc(10);
+	@include breakpoint(max-width $desktop) {
+		display: block;
+	}
+}
+.sticky.is-stuck .menu-icon {
+	margin-top: rem-calc(5);
+}

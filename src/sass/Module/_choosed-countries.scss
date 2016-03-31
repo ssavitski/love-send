@@ -1,0 +1,136 @@
+$amount-button-size: 30px;
+
+.choosed-countries {
+	text-align: left;
+	tbody {
+		background: transparent;
+		border: none;
+		tr:nth-child(even) {
+			background: transparent;
+		}
+	}
+	td {
+		border-bottom: 1px solid $table-border;
+		padding: rem-calc(45) rem-calc(28) rem-calc(15);
+		overflow: hidden;
+		@include breakpoint(max-width $smartphone) {
+			padding-right: rem-calc(10);
+			padding-left: rem-calc(10);
+		}
+		&:last-child {
+			padding-right: 0;
+			padding-left: 0;
+			width: 5%;
+			text-align: right;
+		}
+		&:first-child {
+			width: 20%;
+			@include breakpoint(max-width $mobile) {
+				display: none;
+			}
+		}
+	}
+	&__icon {
+		width: rem-calc($country-item-width);
+		height: rem-calc($country-item-height);
+		background-image: url(../img/countries.png);
+		@include breakpoint(max-width $mobile) {
+			@include scale(0.5);
+		}
+	}
+	&__title {
+		font-size: rem-calc(24);
+		font-weight: $bold;
+		color: $text;
+		letter-spacing: 0.05em;
+		width: 25%;
+		@include breakpoint(max-width $smartphone) {
+			font-size: rem-calc(20);
+		}
+		@include breakpoint(max-width $mobile) {
+			font-size: rem-calc(16);
+		}
+	}
+	&__count {
+		*,
+		& {
+			-moz-user-select: none;
+			-webkit-user-select: none;
+			-ms-user-select:none;
+			user-select:none;
+			-o-user-select:none;
+		}
+		width: 20%;
+		@include breakpoint(max-width $tablet) {
+			width: 25%;
+			padding-left: .5rem !important;
+			padding-right: .5rem !important;
+		}
+		@include breakpoint(max-width $mobile) {
+			width: 120px;
+		}
+	}
+	&__addresses {
+		margin: 0;
+		@include breakpoint(max-width $mobile) {
+			width: rem-calc(70);
+		}
+	}
+	&__address {
+		list-style-type: none;
+		padding: 0;
+	}
+	&__remove {
+		padding: rem-calc(2) rem-calc(10);
+		font-size: rem-calc(30);
+		color: $text;
+		@include rotate(45);
+		@include border-radius-separate(rem-calc(20), rem-calc(20), rem-calc(20), rem-calc(20));
+		display: block;
+		outline: none;
+		&:hover {
+			@include outline;
+			background-color: $send;
+		}
+	}
+
+	@include countries(0);
+
+}
+
+.country-amount {
+	&__increase,
+	&__decrease {
+		@include radius(rem-calc($amount-button-size/2));
+		@include transition(0.3s, ease-in);
+		width: $amount-button-size;
+		height: $amount-button-size;
+		background: rgba($text, .36);
+		color: $text;
+		font-size: rem-calc(24);
+		font-weight: $bold;
+		text-align: center;
+		line-height: $amount-button-size;
+		outline: none;
+		&:hover {
+			background: rgba($text, .5);
+		}
+	}
+	&__increase {
+		margin-right: rem-calc(20);
+		@include breakpoint(max-width $desktop) {
+			margin-right: rem-calc(5);
+		}
+	}
+	&__decrease {
+		margin-left: rem-calc(20);
+		@include breakpoint(max-width $desktop) {
+			margin-left: rem-calc(5);
+		}
+	}
+	&__number {
+		font-size: rem-calc(24);
+		color: $text;
+		font-weight: $bold;
+	}
+}

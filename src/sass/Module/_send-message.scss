@@ -1,0 +1,41 @@
+.send-message {
+	&.button {
+		position: relative;
+		@include cssowl-before-absolute("*", false false 100% 50%);
+		@include border-radius-separate(37px, 37px, 37px, 37px);
+		background-color: $send;
+		height: rem-calc(86);
+		padding: 0 rem-calc(68);
+		font-size: rem-calc(45);
+		text-transform: uppercase;
+		margin-top: rem-calc(130);
+		@include breakpoint($mqMobile) {
+			margin-top: rem-calc(100);
+		}
+		@include breakpoint(max-width $mobile) {
+			width: rem-calc(300);
+			font-size: rem-calc(35);
+			padding: 0 rem-calc(30);
+		}
+		@include breakpoint(max-width ($iphone + rem-calc(100))) {
+			margin-top: rem-calc(100);
+		}
+	}
+	span {
+		text-transform: none;
+	}
+	&:before {
+		background: url(../img/icons.png) rem-calc(-394) 0 no-repeat;
+		width: rem-calc($envelope-width);
+		height: rem-calc(64);
+		margin-left: rem-calc( (-1) * $envelope-width / 2 );
+		@extend %cssowl-text-hide;
+	}
+	&__heart {
+		height: rem-calc(43);
+		width: rem-calc(47);
+		background: url(../img/icons.png) rem-calc(-482) 0 no-repeat;
+		margin-left: rem-calc(22);
+		margin-bottom: rem-calc(-6);
+	}
+}

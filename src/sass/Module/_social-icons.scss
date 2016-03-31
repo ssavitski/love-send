@@ -1,0 +1,36 @@
+.social-icons {
+	list-style-type: none;
+	margin: 0;
+	padding-top: rem-calc(30);
+	@include breakpoint(max-width $smartphone) {
+		float: none !important;
+		text-align: center;
+	}
+	li {
+		display: inline-block;
+	}
+	&__item {
+		width: rem-calc(21);
+		height: rem-calc(20);
+		display: block;
+		margin: 0 rem-calc(8);
+		@include cssowl-before-absolute-inside("*", 100%, 100%, middle, center, 0, 0);
+		@include cssowl-after-absolute-inside("*", 100%, 100%, middle, center, 0, 0);
+		&:after {
+			@include opacity(0);
+			@include transition(0.2s, ease-in);
+			z-index: 666;
+			@extend %cssowl-text-hide;
+		}
+		&:before {
+			@include opacity(1);
+			@extend %cssowl-text-hide;
+		}
+		&:hover {
+			&:after {
+				@include opacity(1);
+			}
+		}
+	}
+	@include social-icons-list;
+}

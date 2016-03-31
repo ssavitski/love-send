@@ -1,0 +1,7 @@
+#choose-receiver {
+  position: relative;
+  @include background-gradient($receiver-top, $receiver-bottom, 'vertical');
+  background-image: url(../img/choose-receiver.png);
+  background-position: center top;
+  @include background-size(100%);
+}

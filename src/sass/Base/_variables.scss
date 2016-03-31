@@ -1,0 +1,63 @@
+// Colors
+$body-bg:					#79a4e6;
+$nav-active-bg:		#ae269a;
+$nav-bg:					#be36aa;
+$nav-bottom:			#BA3CAE;
+$label:						#fe6046;
+$label-info:			#999;
+$label-checkbox:	#929292;
+
+$text:						#fff;
+$bold:						600;
+$extra-bold:			700;
+$ultra-bold:			900;
+$alert:						#fed2ca;
+$title:						#f4f5f9;
+$send:						#ff3838;
+$tab-active:			#ed1c24;
+$country-item:		#f3f2ed;
+$table-border:		#fa829e;
+
+$desktop: rem-calc(1024);
+$tablet: rem-calc(768);
+$smartphone: rem-calc(640);
+$mobile: rem-calc(480);
+$iphone: rem-calc(320);
+ 
+$mqDesktop: 			$tablet + rem-calc(1) $desktop;
+$mqSmartphone: 		$smartphone + rem-calc(1) $tablet;
+$mqMobile: 				$mobile + rem-calc(1) $smartphone;
+$mqIphone:				$iphone + rem-calc(1) $mobile;
+
+$default-font:		'Source Sans Pro', sans-serif;
+
+$link:						#fff;
+$link-hover:			#fff;
+$link-visited:		#fff;
+$link-active:			#fff;
+
+$footer-top:						#241858;
+$footer-bottom:					#231e6e;
+$header-top:						#c132a8;
+$header-bottom:					#7c9ee2;
+$receiver-top:					#ff3839;
+$receiver-bottom:				#ed2387;
+$modal-bg:							#fff;
+$modal-close:						#454545;
+$modal-close-shadow:		#090909;
+$modal-caption:					#3c3c3c;
+$shadow:								#000;
+$input-border:					#e5e5e5;
+
+$country-item-width: 		106;
+$country-item-height:		94;
+$countries-list: russia belarus poland lithuania spain israel ukraine usa india germany england cambodia china;
+
+$social-icons: facebook twitter subscribe google linkedin skype vimeo t;
+
+// Layout
+$wrapper:					$global-width; // 1164px
+
+
+
+$footer-height:		rem-calc(86);

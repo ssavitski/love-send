@@ -1,0 +1,133 @@
+$close-button-size: 40;
+
+.modal-window {
+	@include cssowl-before-absolute-inside("*", 100%, rem-calc(12), top, left, 0, 0);
+	@include cssowl-after-absolute-inside("*", 100%, rem-calc(12), bottom, left, 0, 0);
+	@include box-shadow(0, 0, 3px, rgba($modal-close-shadow, 0.5));
+	background: $modal-bg;
+	padding: 0;
+	border: none;
+	overflow: visible;
+	&:before,
+	&:after {
+		@extend %cssowl-text-hide;
+		background: url(../img/modal-border-hor.png) center center repeat-x $modal-bg;
+	}
+	&__border-left,
+	&__border-right {
+		width: rem-calc(15);
+		height: 100%;
+		position: absolute;
+		top: 0;
+		background: url(../img/modal-border-ver.png) center center repeat-y;
+	}
+	&__border-left {
+		left: 0;
+	}
+	&__border-right {
+		right: 0;
+	}
+	&__stamp-right,
+	&__stamp-left,
+	&__stamp-bottom,
+	&__family {
+		background-image: url(../img/stamps.png);
+		background-repeat: no-repeat;
+		position: absolute;
+		z-index: 555;
+	}
+	&__stamp-right {
+		width: rem-calc(161);
+		height: rem-calc(124);
+		background-position: 0 0;
+		right: rem-calc(-7);
+		top: rem-calc(5);
+	}
+	&__stamp-left {
+		width: rem-calc(141);
+		height: rem-calc(94);
+		background-position: rem-calc(-161) 0;
+		left: 0;
+		top: rem-calc(35);
+	}
+	&__stamp-bottom {
+		width: rem-calc(157);
+		height: rem-calc(121);
+		background-position: rem-calc(-302) 0;
+		left: rem-calc(7);
+		bottom: 0;
+	}
+	&__family {
+		width: rem-calc(100);
+		height: rem-calc(71);
+		background-position: rem-calc(-459) 0;
+		right: rem-calc(74);
+		bottom: rem-calc(47);
+	}
+	&__mission {
+		.modal-window__family {
+			display: none;
+		}
+		.modal-window__stamp-bottom {
+			bottom: 0;
+			left: 0;
+			width: rem-calc(134);
+			background-position: rem-calc(-325) rem-calc(43);
+		}
+	}
+	&__cost {
+		.modal-window__family,
+		.modal-window__stamp-bottom {
+			display: none;
+		}
+	}
+	&__inner {
+		padding: 1rem 0 1rem 1rem;
+		max-height: 100%;
+		margin-right: 1rem;
+		overflow-y: auto;
+		h3 {
+			font-size: rem-calc(36);
+			text-transform: uppercase;
+			color: $modal-caption;
+			font-weight: $extra-bold;
+			text-align: center;
+			margin: rem-calc(40) rem-calc(73) rem-calc(30);
+		}
+		p {
+			font-size: rem-calc(18);
+			color: $modal-caption;
+			margin: rem-calc(12) rem-calc(73);
+			line-height: 1.25;
+			@include breakpoint(max-width $smartphone) {
+				margin-right: rem-calc(20);
+				margin-left: rem-calc(20);
+			}
+		}
+		li {
+			font-size: rem-calc(18);
+			color: $modal-caption;
+			line-height: 1.25;
+		}
+		.prices {
+			margin-left: auto;
+			padding-left: rem-calc(50);
+			padding-bottom: rem-calc(30);
+		}
+	}
+	&__close {
+		@include border-radius-separate(rem-calc($close-button-size/2), rem-calc($close-button-size/2), rem-calc($close-button-size/2), rem-calc($close-button-size/2));
+		@include box-shadow(0, 0, 5px, rgba($modal-close-shadow, 0.35));
+		@include transition(0.3s, ease-in);
+		width: rem-calc($close-button-size);
+		height: rem-calc($close-button-size);
+		background: $modal-bg;
+		color: $modal-close;
+		right: rem-calc(-12);
+		top: rem-calc(-12);
+		z-index: 666;
+		&:hover {
+			@include box-shadow(0, 0, 10px, rgba($modal-close-shadow, 0.5));
+		}
+	}
+}

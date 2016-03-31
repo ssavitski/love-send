@@ -1,0 +1,48 @@
+.country {
+	margin-top: rem-calc(70);
+	text-align: center;
+	&__item {
+		padding: rem-calc(18);
+		.icon {
+			width: rem-calc($country-item-width);
+			height: rem-calc($country-item-height);
+			background-image: url(../img/countries.png);
+			cursor: pointer;
+		}
+		span,
+		a {
+			display: block;
+			margin-top: rem-calc(10);
+			color: $country-item;
+			font-size: rem-calc(17);
+			text-align: center;
+		}
+		a {
+			font-weight: $bold;
+		}
+		&--active {
+			.country {
+				@include countries($country-item-height);
+			}
+		}
+		&:hover {
+			background: rgba($tab-active, 0.3);
+		}
+	}
+	
+	&__list {
+		margin: 0;
+		list-style-type: none;
+	}
+	
+	&__item {
+		display: inline-block;
+	}
+
+	@include countries(0);
+
+	&__item &__default {
+		background-position: (-13)*$country-item-width+px 0;
+		cursor: default;
+	}
+}

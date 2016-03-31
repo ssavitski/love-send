@@ -1,0 +1,38 @@
+#country-tabs {
+	padding-top: rem-calc(320);
+	text-align: center;
+	border: none;
+	@include breakpoint(max-width $smartphone) {
+		padding-top: rem-calc(280);
+	}
+}
+
+.tabs {
+	background: transparent;
+}
+
+.tabs-title {
+	color: $title;
+	float: none;
+	display: inline-block;
+	font-size: rem-calc(16);
+	span {
+		text-decoration: none;
+		text-transform: uppercase;
+		color: $title;
+		font-size: rem-calc(16);
+		padding: 0 rem-calc(16);
+		display: inline-block;
+		margin: 0 rem-calc(4);
+		@include border-radius-separate(10px, 10px, 10px, 10px);
+		@include breakpoint(max-width $smartphone) {
+			padding: 0 rem-calc(5);
+		}
+	}
+	&.is-active {
+		span {
+			background-color: $tab-active;
+			color: $text;
+		}
+	}
+}

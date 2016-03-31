@@ -1,0 +1,12 @@
+#footer {
+	min-height: $footer-height;
+	@include background-gradient($footer-top, $footer-bottom, 'vertical');
+}
+.copyright {
+	padding-top: rem-calc(35);
+	@include breakpoint(max-width $smartphone) {
+		float: none !important;
+		text-align: center;
+		margin-bottom: rem-calc(30);
+	}
+}

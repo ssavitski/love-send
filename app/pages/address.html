@@ -1,0 +1,19 @@
+<h2 class="tabs-panel__title">Enter adress of the receiver</h2>
+<table class="choosed-countries">
+    <tr ng-repeat="country in config.countries" ng-if="country.choosed">
+        <td><i class="choosed-countries__icon choosed-countries__{{country.name}} icon"></i></td>
+        <td class="choosed-countries__title">{{country.label}}</td>
+        <td class="choosed-countries__count country-amount">
+            <button class="country-amount__increase" ng-click="country.addresses.pop()">-</button>
+            <span class="country-amount__number">{{country.addresses.length}}</span>
+            <button class="country-amount__decrease" ng-click="country.addresses.push({})">+</button>
+        </td>
+        <td>
+            <ul class="choosed-countries__addresses">
+                <li class="choosed-countries__address" ng-repeat="(index, address) in country.addresses"><a data-open="contact_window" ng-click="chooseAddress(country.name, index)">Address {{index+1}}</a></li>
+            </ul>
+        </td>
+        <td><button class="choosed-countries__remove" ng-click="country.choosed = false">+</button></td>
+    </tr>
+</table>
+<a class="next-step" href="#payment">Pay <i class="icon"></i></a>

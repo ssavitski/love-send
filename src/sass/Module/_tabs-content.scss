@@ -1,0 +1,87 @@
+.tabs-panel {
+	padding: 0;
+	display: block;
+	text-align: center;
+	&__title {
+		font-weight: 400;
+		line-height: 1;
+		width: 100%;
+		padding: 0 rem-calc(20);
+		@include cssowl-absolute(rem-calc(160) false false 0);
+		@include breakpoint(max-width ($smartphone + rem-calc(60))) {
+			br {
+				display: none;
+			}
+		}
+		@include breakpoint(max-width $smartphone) {
+			font-size: rem-calc(40);
+		}
+		@include breakpoint(max-width $mobile) {
+			font-size: rem-calc(30);
+		}
+	}
+}
+
+.tabs-content {
+	background: transparent;
+	border: none;
+	padding-bottom: rem-calc(75);
+}
+
+.country {
+	&__ask {
+		color: $title;
+		font-size: rem-calc(24);
+		text-transform: uppercase;
+		text-align: center;
+		margin: rem-calc(60) 0 0;
+		@include breakpoint(max-width $smartphone) {
+			font-size: rem-calc(18);
+		}
+	}
+	&__choose {
+		text-transform: lowercase;
+		font-size: rem-calc(50);
+		margin-left: rem-calc(15);
+		@include breakpoint(max-width $smartphone) {
+			font-size: rem-calc(40);
+		}
+		@include breakpoint(max-width $mobile) {
+			display: block;
+		}
+	}
+}
+
+.next-step {
+	color: $title;
+	text-transform: uppercase;
+	font-size: rem-calc(44);
+	text-align: center;
+	border: 3px solid $text;
+	text-decoration: none;
+	display: inline-block;
+	height: rem-calc(80);
+	line-height: rem-calc(70);
+	min-width: rem-calc(415);
+	margin-top: rem-calc(60);
+	background-color: $receiver-bottom;
+	@include border-radius-separate(34px, 34px, 34px, 34px);
+	@include transition(0.3s, ease-in);
+	@include breakpoint(max-width $mobile) {
+		width: rem-calc(300);
+		min-width: auto;
+		font-size: rem-calc(36);
+		height: rem-calc(70);
+		line-height: rem-calc(60);
+	}
+	.icon {
+		height: rem-calc(27);
+		width: rem-calc(16);
+		background-image: url(../img/icons.png);
+		background-position: rem-calc(-632) 0;
+		margin-left: rem-calc(18);
+	}
+	&:hover {
+		background-color: $send;
+	}
+}

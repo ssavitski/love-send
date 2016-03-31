@@ -1,0 +1,148 @@
+$logo-height: 37;
+$envelope-width: 88;
+
+.logo {
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: rem-calc(24);
+	margin-top: rem-calc(-5);
+	&__icon {
+		background: url(../img/icons.png) 0 0 no-repeat;
+		width: rem-calc(59);
+		height: rem-calc($logo-height);
+		margin-right: rem-calc(5);
+		margin-bottom: rem-calc(-5);
+		@include line-height($logo-height);
+	}
+}
+
+#header {
+	max-height: rem-calc(900);
+	text-align: center;
+	position: relative;
+	z-index: 777;
+	@include background-gradient($header-top, $header-bottom, 'vertical');
+	@include cssowl-after-absolute("*", false 0 -88px 0);
+	@include breakpoint(max-width $smartphone) {
+		max-height: rem-calc(1000);
+	}
+	@include breakpoint(max-width $mobile) {
+		max-height: rem-calc(1100);
+	}
+	@include breakpoint(max-width $iphone) {
+		max-height: rem-calc(1320);
+	}
+	&:after {
+		background: url(../img/triangle.png) center center no-repeat;
+		width: 100%;
+		height: rem-calc(122);
+		@include background-size(100%, 100%);
+		@extend %cssowl-text-hide;
+		@include breakpoint(max-width $tablet) {
+			bottom: rem-calc(-68);
+			@include background-size(auto, auto);
+		}
+	}
+	.title-bar {
+		@include background-gradient($header-top, $nav-bottom, 'vertical');
+		padding-top: rem-calc(47);
+		padding-bottom: rem-calc(40);
+		height: 0;
+		&.is-stuck {
+			padding-top: rem-calc(13);
+			z-index: 666;
+			@include box-shadow(2px, 0, 5px, rgba($modal-close-shadow, 0.5));
+		}
+	}
+	[data-sticky-container],
+	.title-bar {
+		@include transition(0.2s, ease-out);
+	}
+}
+
+.title {
+	text-align: center;
+	clear: both;
+	text-transform: uppercase;
+	color: $title;
+	line-height: 1.8;
+	margin-top: rem-calc(140);
+	margin-bottom: rem-calc(-10);
+	@include breakpoint($mqSmartphone) {
+		font-size: rem-calc(80);
+	}
+	@include breakpoint($mqMobile) {
+		font-size: rem-calc(60);
+		margin-top: rem-calc(100);
+	}
+	@include breakpoint(max-width $mobile) {
+		font-size: rem-calc(40);
+	}
+	@include breakpoint(max-width $iphone) {
+		margin-top: rem-calc(100);
+	}
+	small {
+		text-transform: none;
+		display: block;
+		color: $title;
+	}
+	.alert {
+		color: $alert;
+	}
+}
+
+.slogan {
+	text-align: center;
+	font-weight: 400;
+	margin-bottom: rem-calc(50);
+	padding: 0 rem-calc(20);
+}
+
+.pointer {
+	width: rem-calc(29);
+	height: rem-calc(34);
+	background: url(../img/icons.png) rem-calc(-529) 0 no-repeat;
+	display: block;
+	margin: rem-calc(40) auto 0;
+	position: relative;
+	z-index: 555;
+	@include breakpoint($smartphone ($smartphone + rem-calc(5))) {
+		margin-top: rem-calc(10);
+	}
+}
+
+.move-next {
+	background: url(../img/icons.png) rem-calc(-558) 0 no-repeat;
+	height: rem-calc(74);
+	width: rem-calc(74);
+	cursor: default;
+	display: inline-block;
+	position: relative;
+	bottom: rem-calc(-40);
+	z-index: 333;
+	@include breakpoint(min-width ($desktop + rem-calc(36))) {
+		margin-top: rem-calc(15);
+	}
+	@include breakpoint(($smartphone + rem-calc(5)) ($smartphone + rem-calc(40))) {
+		bottom: rem-calc(-20);
+	}
+	@include breakpoint($smartphone ($smartphone + rem-calc(5))) {
+		bottom: rem-calc(-15);
+	}
+	.fb-share-button {
+		transform: scale(3.5);
+		-ms-transform: scale(3.5);
+		-webkit-transform: scale(3.5);
+		-o-transform: scale(3.5);
+		-moz-transform: scale(3.5);
+		transform-origin: top left;
+		-ms-transform-origin: top left;
+		-webkit-transform-origin: top left;
+		-moz-transform-origin: top left;
+		-webkit-transform-origin: top left;
+		position: absolute;
+    top: 5px;
+    left: 13px;
+    @include opacity(0);
+	}
+}
