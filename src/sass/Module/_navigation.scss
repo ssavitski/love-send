@@ -1,12 +1,11 @@
 .menu {
 	padding: 0;
+
 	li {
 		list-style-type: none;
 		display: inline-block;
 	}
-	&.is-opened {
-		display: block;
-	}
+
 	.menu__item {
 		display: block;
 		text-transform: uppercase;
@@ -30,13 +29,31 @@
 		}
 	}
 	@include breakpoint(max-width $desktop) {
-		display: none;
+		overflow: hidden;
 		clear: both;
 		float: none;
 		position: absolute;
 		right: 0;
 		top: 100%;
+		@include transition(.3s, linear);
 		@include box-shadow(0, 1px, 5px, rgba($modal-close-shadow, 0.5));
+		transform: translateX(120%);
+		&.is-opened {
+			transform: translateX(0);
+
+			&.ng-add-active {
+				transform: translateX(0);
+			}
+		}
+
+		&.ng-remove {
+			transform: translateX(0);
+		}
+
+		&.ng-remove-active {
+			transform: translateX(120%);
+		}
+
 		li {
 			display: block;
 		}

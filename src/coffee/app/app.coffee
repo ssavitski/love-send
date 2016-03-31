@@ -1,1 +1,1 @@
-angular.module("sendMessage", ["ngRoute"])
+angular.module("sendMessage", ["ngRoute", "ngAnimate"])

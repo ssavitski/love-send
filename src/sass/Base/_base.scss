@@ -4,6 +4,7 @@ body {
 	color: $text;
 	font-size: rem-calc(16);
 	font-weight: 400;
+	overflow-x: hidden;
 }
 
 input,
@@ -105,4 +106,19 @@ input[type="text"] {
 		color: darken($label-info, 20);
 		border-bottom: 1px solid darken($input-border, 20);
 	}
+}
+
+ng-view.ng-enter,
+[ng-view].ng-enter {
+	@include transition(.4s, ease-out);
+	@include opacity(0);
+	margin-left: 150px;
+	margin-right: -150px;
+}
+
+ng-view.ng-enter-active,
+[ng-view].ng-enter-active {
+	@include opacity(1);
+	margin-left: 0;
+	margin-right: 0;
 }

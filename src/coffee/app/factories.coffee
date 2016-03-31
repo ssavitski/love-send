@@ -6,7 +6,7 @@ angular.module("sendMessage").factory('$config', [() ->
     activeAddress: 0
     countries: [
       { name: 'russia',	label: 'Russia', choosed: false, addresses: [{}], loveMessage: 'Люблю тебя' }
-      { name: 'belarus',	label: 'Belarus', choosed: true, addresses: [{},{}], loveMessage: 'Кахаю цябе' }
+      { name: 'belarus',	label: 'Belarus', choosed: false, addresses: [{}], loveMessage: 'Кахаю цябе' }
       { name: 'poland',	label: 'Poland', choosed: false, addresses: [{}], loveMessage: 'Kocham cię' }
       { name: 'lithuania',	label: 'Lithuania', choosed: false, addresses: [{}], loveMessage: 'Aš tave myliu' }
       { name: 'spain',	label: 'Spain', choosed: false, addresses: [{}], loveMessage: 'Te amo' }
