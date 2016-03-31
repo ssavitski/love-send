@@ -13,7 +13,6 @@ var rename 				= require('gulp-rename');
 var gulpif 				= require('gulp-if');
 var base64 				= require('gulp-base64');
 var imageop 			= require('gulp-image-optimization');
-var pngquant 			= require('imagemin-pngquant');
 var changed 			= require('gulp-changed');
 var order         = require("gulp-order");
 
@@ -33,8 +32,8 @@ gulp.task('scripts', function() {
     ]))
     .pipe(coffee({bare: true}).on('error', gutil.log))
     .pipe(concat('main.js'))
-    // .pipe(uglify())
-    // .pipe(rename({suffix: '.min'}))
+    .pipe(uglify())
+    .pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('./app/js'))
     .pipe(browserSync.stream());
 });
@@ -42,7 +41,7 @@ gulp.task('scripts', function() {
 gulp.task('styles', function() {
   return gulp.src(paths.scss)
   	.pipe(sass({
-  		// outputStyle: 'compressed'
+  		 outputStyle: 'compressed',
   		 includePaths: [
   		 	'./bower_components/foundation-sites/scss', 
   		 	'./bower_components/Andy', 
@@ -51,12 +50,12 @@ gulp.task('styles', function() {
         './bower_components/compass-breakpoint/stylesheets'
   		 ]
   	}))
-    /*.pipe(autoprefixer({
+    .pipe(autoprefixer({
       browsers: ['last 2 version', 'safari 5', 'ie 7', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'],
       cascade: false
-    }))*/
-    // pipe(cssmin())
-		// .pipe(rename({suffix: '.min'}))
+    }))
+    .pipe(cssmin())
+		.pipe(rename({suffix: '.min'}))
     .pipe(gulp.dest('./app/css'))
     .pipe(browserSync.stream());
 });
@@ -70,8 +69,8 @@ gulp.task('html', function() {
 	      ]
 	    }))
 		.pipe(useref())
-	 //  .pipe(gulpif('*.js', uglify()))
-	 //  .pipe(gulpif('*.css', cssmin()))
+	  .pipe(gulpif('*.js', uglify()))
+	  .pipe(gulpif('*.css', cssmin()))
 		.pipe(gulp.dest('./app'))
 		.pipe(browserSync.stream());
 });
